@@ -37,7 +37,8 @@ function createAccessToken(user) {
 function register(req, res) {
   if (sendValidationErrors(req, res)) return;
 
-  const { name, email, password, role = 'viewer' } = req.body;
+  const { name, email, password } = req.body;
+  const role = 'viewer';
   const alreadyPresent = findUserIdByEmail.get(email);
 
   if (alreadyPresent) {
